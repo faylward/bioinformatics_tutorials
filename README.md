@@ -1,10 +1,9 @@
 # Bioinformatics tutorials<br/>
+<br/><br/>
 
-These are a series of bionformatics tutorials I have developed, primarily for teaching Systems Biology 3036 at Virginia Tech and also for archiving smaller protocols used in my lab group.
-<br/>
-The "chapters" or tutorials below are intended for use at the introductory level (i.e., little or no bioinformatics knowledge). They presume a Unix or Unix-like environment (primarily Ubuntu or CentOS). 
-<br/>
-<br/>
+These are a series of bionformatics tutorials I have developed, primarily for teaching Systems Biology 3036 at Virginia Tech and also for archiving smaller protocols used in my lab group.<br/><br/>
+
+The "chapters" or tutorials below are intended for use at the introductory level (i.e., little or no bioinformatics knowledge). They presume a Unix or Unix-like environment (primarily Ubuntu or CentOS). <br/><br/>
 
 ### Main chapters
 
