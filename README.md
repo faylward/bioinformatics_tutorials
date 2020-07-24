@@ -1,4 +1,4 @@
-# Bioinformatics tutorials<br/>
+# Bioinformatics tutorials
 <br/><br/>
 
 Currently in development!
