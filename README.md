@@ -1,5 +1,5 @@
 # Bioinformatics tutorials
-<br/><br/>
+<br/>
 
 Currently in development!
 <br/><br/>
