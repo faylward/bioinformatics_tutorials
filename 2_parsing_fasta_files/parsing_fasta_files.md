@@ -36,6 +36,7 @@ After this you should see the exact same file, only without the .gz ending. You 
 
 <br/>
 <br/>
+
 ## Check the formatting and take a look inside
 
 Now to start analyzing this FASTA file we first want to check on the formatting. 
@@ -84,6 +85,7 @@ What is the range of gene lengths?
 
 <br/>
 <br/>
+
 ## seqkit fx2tab
 
 Let's look at some stats from individual genes using the "fx2tab" command:
@@ -94,6 +96,7 @@ Note that we are piping the command to the "head" command here, so that only the
 
 <br/>
 <br/>
+
 ## finding the longest and shortest genes
 
 Now let's try to sort the genes based on their length, so that we can find the names of the longest and shortest genes:
@@ -109,6 +112,7 @@ We can do the same with "tail" instead of head to find the names of the shortest
 
 <br/>
 <br/>
+
 ## Examining gene % G+C content
 
 We can use the same logic as above to find the genes with the highest and lowest %GC content. For this we need to sort by the third column. 
@@ -127,6 +131,7 @@ Note that we did not use the "-n" flag in the seqkit fx2tab command, since this 
 
 <br/>
 <br/>
+
 ## Search genes for subsequences
 
 We can also search the actual gene sequences to find certain motifs with the "locate" subcommand. 
