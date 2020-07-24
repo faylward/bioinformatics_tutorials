@@ -130,7 +130,6 @@ bedtools getfasta -fi GCF_000009585.1_ASM958v1_genomic.fna -bed rRNA.gff -fo rRN
 <br/>
 The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
 
-<br/>
 > seqkit stats rRNA.fasta
 
 > seqkit fx2tab -n -l -g rRNA.fasta
@@ -138,10 +137,8 @@ The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
 <br/>
 and let's say we wanted to get the sequence of the first 16S rRNA gene:
 
-<br/>
 > seqkit fx2tab rRNA.fasta | grep "NC_017333.1:564549-566098"
 
-<br/>
 Retrieving the sequence of a 16S rRNA gene can be very helpful if you are unsure of the taxonomy of the genome that you are examining. These genes can be compared to various 16S databases to help identify a microbe. 
 
 
