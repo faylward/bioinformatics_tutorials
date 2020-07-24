@@ -10,10 +10,10 @@ Note that many of the files are in a compressed .gz format.
 .fna files are Fasta Nucleic Acid (chromosome or gene sequences)
 .faa files are Fasta Amino Acid   (protein sequences)
 
-Today we will be most interested in the gene and chromosome files.
+Here we will be most interested in the gene and chromosome files.
 
 <br/>
-
+<br/>
 
 To get started let's download the main genome FASTA file for Yersinia Pestis CO92
 
@@ -21,6 +21,8 @@ To get started let's download the main genome FASTA file for Yersinia Pestis CO9
 
 This command uses the common Unix utility "wget", which will download a file directy to the folder in which you are located. After doing this you should see the .fna.gz file in your folder. You can check this with the "ls" command. 
 
+<br/>
+<br/>
 
 Because this file is compressed, we must first uncompress it with the "gunzip" command (another common Unix utility). 
 
@@ -28,7 +30,8 @@ Because this file is compressed, we must first uncompress it with the "gunzip" c
 
 After this you should see the exact same file, only without the .gz ending. You can check this with the "ls" command. 
 
-
+<br/>
+<br/>
 
 Now to start analyzing this FASTA file we first want to check on the formatting. 
 Sometimes genome files can be quite large, so we don't want to open the entire file with a text editor. Instead we can just check the first and last few lines to see what the format looks like. For this we can use the "head" and "tail" Unix commands. 
@@ -41,6 +44,9 @@ and
 
 You should see a pretty typical FASTA format. Header lines start with a ">" and provide names and descriptions, and subsequent lines have the actual sequence information (in this case ATGCs since the sequence is DNA). 
 
+
+<br/>
+<br/>
 
 Now that we have confirmed this is a typical FASTA file, we can start analyzing it with the "seqkit" tool. 
 
