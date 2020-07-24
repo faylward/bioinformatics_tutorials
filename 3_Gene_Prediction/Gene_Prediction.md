@@ -70,6 +70,7 @@ We can also find the longest and shortest genes, and those with the highest and 
 <br/>
 > seqkit fx2tab -i -n -g -l genes.fna | sort -rn -k 2,2 | head
 
+<br/>
 > seqkit fx2tab -i -n -g -l genes.fna | sort -rn -k 3,3 | head
 
 <br/>
@@ -129,7 +130,7 @@ bedtools getfasta -fi GCF_000009585.1_ASM958v1_genomic.fna -bed rRNA.gff -fo rRN
 <br/>
 The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
 
-
+<br/>
 > seqkit stats rRNA.fasta
 
 > seqkit fx2tab -n -l -g rRNA.fasta
