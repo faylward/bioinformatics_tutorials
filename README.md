@@ -22,5 +22,6 @@ The "chapters" (or tutorials) below are intended for use at the introductory lev
 
 ### Miscellaneous
 
-Mummer plots and whole-genome alignment
-ANI and AAI
+Creating your own bin folder and storing binaries there<br/>
+Mummer plots and whole-genome alignment<br/>
+ANI and AAI<br/>
