@@ -1,5 +1,5 @@
 ## Gene Prediction ##
-<br/><br/>
+<br/>
 
 ## Download the data and get started<br/>
 
