@@ -12,8 +12,8 @@ Note that many of the files are in a compressed .gz format.
 
 Today we will be most interested in the gene and chromosome files.
 
- +
- +
+ 
+ 
 
 To get started let's download the main genome FASTA file for Yersinia Pestis CO92
 
