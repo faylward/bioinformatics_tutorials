@@ -42,7 +42,13 @@ Prodigal is an excellent gene-prediction tool that works well for finding protei
 <a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-119">Link to Prodigal paper!</a> 
 <br/>
 
-To start, let's take a look at the help menu:
+To install this tool you will probably be able to use Anaconda with the bioconda channel:
+
+> conda install prodigal -c bioconda
+
+<br/>
+
+After installation, you can take a look at the help menu:
 <br/>
 
 > prodigal -h
