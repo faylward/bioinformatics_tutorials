@@ -38,6 +38,11 @@ Now we can start predicting genes using Prodigal. The main page for this tool is
 https://github.com/hyattpd/Prodigal
 <br/>
 
+Prodigal is an excellent gene-prediction tool that works well for finding protein-coding genes. The paper that described this tool is quite readable and nicely describes some of the primary challenges of gene prediction (https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-119).
+<br/>
+<a href="https://bmcbioinformatics.biomedcentral.com/articles/10.1186/1471-2105-11-119">Link to Prodigal paper!</a> 
+<br/>
+
 To start, let's take a look at the help menu:
 <br/>
 
