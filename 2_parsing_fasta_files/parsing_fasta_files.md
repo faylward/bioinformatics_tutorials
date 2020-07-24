@@ -15,7 +15,7 @@ Here we will be most interested in the gene and chromosome files.
 <br/>
 <br/>
 
-## Download some data 
+### Download some data 
 
 To get started let's download the main genome FASTA file for Yersinia Pestis CO92
 
@@ -26,7 +26,7 @@ This command uses the common Unix utility "wget", which will download a file dir
 <br/>
 <br/>
 
-## Uncompress the data
+### Uncompress the data
 
 Because this file is compressed, we must first uncompress it with the "gunzip" command (another common Unix utility). 
 
@@ -37,7 +37,7 @@ After this you should see the exact same file, only without the .gz ending. You 
 <br/>
 <br/>
 
-## Check the formatting and take a look inside
+### Check the formatting and take a look inside
 
 Now to start analyzing this FASTA file we first want to check on the formatting. 
 Sometimes genome files can be quite large, so we don't want to open the entire file with a text editor. Instead we can just check the first and last few lines to see what the format looks like. For this we can use the "head" and "tail" Unix commands. 
@@ -53,7 +53,7 @@ You should see a pretty typical FASTA format. Header lines start with a ">" and 
 <br/>
 <br/>
 
-## Use seqkit to analyze FASTA files
+### Use seqkit to analyze FASTA files
 
 Now that we have confirmed this is a typical FASTA file, we can start analyzing it with the "seqkit" tool. 
 
@@ -74,7 +74,7 @@ and
 <br/>
 <br/>
 
-## seqkit stats
+### seqkit stats
 
 Now let's get some basic stats about the genes with the "stats" command. 
 
@@ -86,7 +86,7 @@ What is the range of gene lengths?
 <br/>
 <br/>
 
-## seqkit fx2tab
+### seqkit fx2tab
 
 Let's look at some stats from individual genes using the "fx2tab" command:
 
@@ -97,7 +97,7 @@ Note that we are piping the command to the "head" command here, so that only the
 <br/>
 <br/>
 
-## finding the longest and shortest genes
+### Finding the longest and shortest genes
 
 Now let's try to sort the genes based on their length, so that we can find the names of the longest and shortest genes:
 
@@ -113,7 +113,7 @@ We can do the same with "tail" instead of head to find the names of the shortest
 <br/>
 <br/>
 
-## Examining gene % G+C content
+### Examining gene % G+C content
 
 We can use the same logic as above to find the genes with the highest and lowest %GC content. For this we need to sort by the third column. 
 
@@ -132,7 +132,7 @@ Note that we did not use the "-n" flag in the seqkit fx2tab command, since this 
 <br/>
 <br/>
 
-## Search genes for subsequences
+### Search genes for subsequences
 
 We can also search the actual gene sequences to find certain motifs with the "locate" subcommand. 
 
@@ -151,7 +151,7 @@ Now let's do the same, but allow for one mismatch:
 
 Note that we get many more matches when allowing for even just a single mismatch, since that mismatch can occur anywhere on the sequence. | 
 
-## Examine only the first few bases of each gene
+### Examine only the first few bases of each gene
 
 Lastly, let's say we want to examine the actual sequences a bit more. Perhaps we are interested in the start codons used by these genes. We can identify them by using the "subseq" command. 
 
