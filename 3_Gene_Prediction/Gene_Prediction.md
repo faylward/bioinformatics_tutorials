@@ -1,6 +1,8 @@
 ## Gene Prediction ##
 <br/><br/>
 
+## Download the data and get started<br/>
+
 Let's start by downloading a Staphylococcus aureus genome from NCBI:
 
 > wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_genomic.fna.gz
@@ -29,7 +31,8 @@ and
 <br/>
 Based on these results we can see we're working with a 2.9 Mbp genome that is split into 4 replicons. The chromosome has the majority of the sequence, with 2.87 Mbp. The chromosome has a %GC content of ~33%, slightly higher than that of the plasmids. 
 
-<br/>
+## Prodigal<br/>
+
 Now we can start predicting genes using Prodigal. The main page for this tool is here:
 https://github.com/hyattpd/Prodigal
 <br/>
@@ -104,7 +107,10 @@ And if we want to get very fancy we can use grep to identify all genes EXCEPT th
 Note the -v flag in grep indicates that all lines that do not match to the given pattern should be returned. 
 With this command we can see that only 14 of 2,691 genes are present on all of the plasmids combined. So the vast majority of genes are present on the chromosome.  
 
-<br/>
+<br/><br/><br/>
+
+## Barrnap<br/>
+
 So far we have only considered protein-coding genes, but genes that encode functional RNAs are very important and should be considered as well. 
 <br/>
 To predict rRNAs and tRNAs we will use the tool barrnap
