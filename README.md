@@ -10,11 +10,11 @@ The "chapters" or tutorials below are intended for use at the introductory level
 
 ### Main chapters
 
-[Chapter 01: Introduction to Unix](1_introduction_to_unix/introduction_to_unix.md)
+[Ch 01: Introduction to Unix](1_introduction_to_unix/introduction_to_unix.md)
 
-[Chapter 02: Parsing FASTA files](2_parsing_fasta_files/parsing_fasta_files.md)
+[Ch 02: Parsing FASTA files](2_parsing_fasta_files/parsing_fasta_files.md)
 
-[Chapter 03: Gene Prediction](3_Gene_Prediction/Gene_Prediction.md)
+[Ch 03: Gene Prediction](3_Gene_Prediction/Gene_Prediction.md)
 
 <br/><br/>
 
