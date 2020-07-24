@@ -20,8 +20,9 @@ The "chapters" (or tutorials) below are intended for use at the introductory lev
 
 <br/><br/>
 
-### Miscellaneous
+### Miscellaneous [TODO]
 
 Creating your own bin folder and storing binaries there<br/>
+Writing simple python scripts to parse text files<br/>
 Mummer plots and whole-genome alignment<br/>
 ANI and AAI<br/>
