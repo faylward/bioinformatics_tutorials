@@ -67,10 +67,8 @@ Note that we should get the same number of genes and proteins, since each gene w
 <br/>
 We can also find the longest and shortest genes, and those with the highest and lowest GC content like in W1:
 
-<br/>
 > seqkit fx2tab -i -n -g -l genes.fna | sort -rn -k 2,2 | head
 
-<br/>
 > seqkit fx2tab -i -n -g -l genes.fna | sort -rn -k 3,3 | head
 
 <br/>
