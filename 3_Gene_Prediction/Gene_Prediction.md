@@ -124,7 +124,10 @@ With this command we can see that only 14 of 2,691 genes are present on all of t
 
 So far we have only considered protein-coding genes, but genes that encode functional RNAs are very important and should be considered as well. 
 <br/>
-To predict rRNAs and tRNAs we will use the tool barrnap
+To predict rRNAs and tRNAs we will use the tool barrnap: https://github.com/tseemann/barrnap
+
+To install barrnap we will use Anaconda, just as with prodigal:
+> conda install barrnap -c bioconda
 
 <br/>
 Barrnap is a relatively simple tool to use. We can see the help menu with 
@@ -137,7 +140,15 @@ We essentially just need to give it the input FASTA file of the genome, and spec
 > barrnap GCF_000009585.1_ASM958v1_genomic.fna > rRNA.gff
 
 <br/>
-This gives us a GFF file with the coordinates of the predicted RNA genes, but it does not give us the sequences. To retrieve them we need to use a tool called BEDtools, which will cross reference the genome file with the GFF file and give us a FASTA file of all of the rRNA genes. The command is:
+This gives us a GFF file with the coordinates of the predicted RNA genes, but it does not give us the sequences. To retrieve them we need to use a tool called BEDtools, which will cross reference the genome file with the GFF file and give us a FASTA file of all of the rRNA genes. More information on BEDtools can be found here: https://bedtools.readthedocs.io/en/latest/
+
+<br/>
+To install bedtools we can use the same conda command as we have been using:
+
+> conda install bedtools -c bioconda
+
+
+The command is:
 
 <br/>
 bedtools getfasta -fi GCF_000009585.1_ASM958v1_genomic.fna -bed rRNA.gff -fo rRNA.fasta
