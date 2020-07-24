@@ -31,6 +31,7 @@ and
 <br/>
 Based on these results we can see we're working with a 2.9 Mbp genome that is split into 4 replicons. The chromosome has the majority of the sequence, with 2.87 Mbp. The chromosome has a %GC content of ~33%, slightly higher than that of the plasmids. 
 
+<br/><br/>
 ## Prodigal<br/>
 
 Now we can start predicting genes using Prodigal. The main page for this tool is here:
