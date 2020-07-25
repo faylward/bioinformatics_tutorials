@@ -5,9 +5,14 @@ Let's start by comparing two genomes that are closely related: Escherichai coli 
 
 promer k12.fna sent.fna
 
-wget -O k12.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
+>wget -O k12.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/005/845/GCF_000005845.2_ASM584v2/GCF_000005845.2_ASM584v2_genomic.fna.gz
 
-wget -O o157.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/008/865/GCF_000008865.2_ASM886v2/GCF_000008865.2_ASM886v2_genomic.fna.gz
+>wget -O o157.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/008/865/GCF_000008865.2_ASM886v2/GCF_000008865.2_ASM886v2_genomic.fna.gz
+
+> gunzip *.gz
+
+>nucmer k12.fna o157.fna -p k12_vs_0157
+
 
 
 mummer k12.fna o157.fna  > k12_vs_o157.mums
