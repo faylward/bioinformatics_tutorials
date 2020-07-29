@@ -26,3 +26,5 @@ Creating your own bin folder and storing binaries there<br/>
 Writing simple python scripts to parse text files<br/>
 Mummer plots and whole-genome alignment<br/>
 ANI and AAI<br/>
+Recruitment plots<br/>
+multi-locus phylogeny workflow<br/>
