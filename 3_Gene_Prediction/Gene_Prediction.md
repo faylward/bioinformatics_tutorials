@@ -37,6 +37,8 @@ To install this tool you will probably be able to use Anaconda with the bioconda
 
 > conda install prodigal -c bioconda
 
+Keep this general command format in mind- in future tutorials I won't explicitly put download instructions for tools unless they are atypical. 
+
 After installation, you can take a look at the help menu:
 
 > prodigal -h
