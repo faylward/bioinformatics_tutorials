@@ -1,34 +1,28 @@
 ## Gene Prediction ##
-<br/>
 
 ## Download the data and get started<br/>
 
 Let's start by downloading a Staphylococcus aureus genome from NCBI:
 
 > wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_genomic.fna.gz
-<br/>
 
 and let's make sure to unzip it so that we can access the .fna file directly (gunzip command). 
 Make sure to use "head" and "tail" as we did in the W1 tutorial to ensure that the file is in FASTA format.
-<br/>
 
 > gunzip  GCF_000009585.1_ASM958v1_genomic.fna.gz
-<br/>
 
 and
+
 > ls -lh
 
-<br/>
 Now let's get some basic stats using seqkit so we know what we're dealing with:
 
 > seqkit stats GCF_000009585.1_ASM958v1_genomic.fna
 
-<br/>
 and
 
 > seqkit fx2tab -l -n -g GCF_000009585.1_ASM958v1_genomic.fna
 
-<br/>
 Based on these results we can see we're working with a 2.9 Mbp genome that is split into 4 replicons. The chromosome has the majority of the sequence, with 2.87 Mbp. The chromosome has a %GC content of ~33%, slightly higher than that of the plasmids. 
 
 <br/><br/>
