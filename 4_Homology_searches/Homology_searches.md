@@ -138,9 +138,9 @@ We can play around with various other plotting parameters to make the plot look 
  
 ![Image of Example RStudio Console](https://github.com/faylward/bioinformatics_tutorials/blob/master/4_Homology_searches/image10.png)
  
-For closely related genomes many scientists prefer using average nucleic acid identity (ANI) instead, but for distantly-related organisms this metric is less useful. Viruses evolve very quickly, so AAI is more useful here. To get the mean percent identity we can use the "mean" function in R. 
 
 ### Calculating the Average Amino Acid Identity
+For closely related genomes many scientists prefer using average nucleic acid identity (ANI) instead, but for distantly-related organisms this metric is less useful. Viruses evolve very quickly, so AAI is more useful here. To get the mean percent identity we can use the "mean" function in R. 
 
 > mean(blastout$V3)
  
