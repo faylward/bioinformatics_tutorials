@@ -20,18 +20,19 @@ gunzip *.gz
 After this we should have two .faa files. To check this we can simply use the ls command:
 
 > ls 
- 
-### Predict proteins
+
  <br>
+### Predict proteins
+
  
 Now that we have our genomes downloaded and unzipped, we need to predict genes and proteins (similar to what what is described in a [Previous Tutorial](https://github.com/faylward/bioinformatics_tutorials/blob/master/3_Gene_Prediction/Gene_Prediction.md))
 
 > prodigal -i PSSM2.fna -a PSSM2.faa -d PSSM2.genes.fna -f gff -o PSSM2.gff
 
 > prodigal -i PSSM3.fna -a PSSM3.faa -d PSSM3.genes.fna -f gff -o PSSM3.gff
-
+ <br>
+ 
 ### Get some statistics on the number of proteins encoded in each genome
-<br>
 
 Now that we have the files downloaded and in the right format, we can get some basic stats about their format and content. FASTA files are formatted such that sequences are always preceded by a "header" line that starts with ">". This line contains information about the name of the sequence, and possibly other information. 
 Let's use "seqkit stats" to get some sequence statistics for the protein files. 
