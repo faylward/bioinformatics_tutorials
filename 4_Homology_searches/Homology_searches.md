@@ -5,9 +5,9 @@ When analyzing genomic data we will often find ourselves in a situation where we
 Here we will use proteins predicted from the genomes of two Prochlorococcus bacteriophage genomes. We can use the wget command, which is already available as part of the base Ubuntu command line. Wget allows us to download files from a web server directly into the folder we are working in, and we need to know the URL for the file in order to do this. The National Center for Biotechnology Information (NCBI) has many genomes and genome-related datasets that it posts for researchers to use, and I have gone through and found the appropriate URLs to use here. 
 Here are the commands:
 
->wget -O PSSM2.fna.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/859/585/GCF_000859585.1_ViralProj15135/GCF_000859585.1_ViralProj15135_genomic.fna.gz
+>wget -O PSSM2.fna.gz ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/859/585/GCF_000859585.1_ViralProj15135/GCF_000859585.1_ViralProj15135_genomic.fna.gz
  
->wget -O PSSM3.fna.gz ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/907/775/GCF_000907775.1_ViralProj209210/GCF_000907775.1_ViralProj209210_genomic.fna.gz
+>wget -O PSSM3.fna.gz ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/907/775/GCF_000907775.1_ViralProj209210/GCF_000907775.1_ViralProj209210_genomic.fna.gz
  
 The -O flag specifies the file names that we want the downloads to be called. Without this flag wget would give the downloaded file the same names that they are given on the website, and sometimes these names can be quite long. 
  
@@ -112,13 +112,35 @@ Above I mentioned two questions we would like to answer:
 1) How many proteins in genome A are present in genome B and vice versa.
 2) Of he proteins that are present in both genomes, how similar are they overall?
  
-We answered the first qeustion above, and for the second we can use a package called 'datamash' that can help with simple math in the command line. Datamash will allow for quick calculation of averages straight from the command line by piping blastp directly into this command. 
+We answered the first qeustion above, and for the second we can save the output of a BLASTP search to a file and then plot the results in R. 
 
-> blastp -query PSSM3.faa -db PSSM2.faa -outfmt 6 -max_target_seqs 1 -evalue 0.00001 -max_hsps 1 -qcov_hsp_perc 50 | datamash mean 3
+> blastp -query PSSM3.faa -db PSSM2.faa -outfmt 6 -max_target_seqs 1 -evalue 0.00001 -max_hsps 1 -qcov_hsp_perc 50 > PSSM3_vs_PSSM2.out
+
+Now for the next few lines of code we're going to enter the R environment. You will need to open up an R console for this, or if you are working in an RStudio environment click on the "Consol" tab on the bottom-left portion of the screen. 
+
+First we need to navigate to the appropriate folder again (we may have done this before in the terminal but we need to do it again in R). The R command for this is "setwd", short for "set working directory".
+setwd("/home/faylward/tutorials/")
+
+Then we import the data into an R object. We can call the object whatever we want. For purposes here we'll just call it "blastout". 
+The command for reading in tabular data is "read.table", and you can see we need extra flags in the command to specify the file name and that the columns are tab-delimited. 
+>blastout <- read.table(file="PSSM3_vs_PSSM2.out", sep="\t")
+
+We can look inside the blastout object we created using a command similar to the "head" command in Unix. 
+>head(blastout)
+
+We can make a simple histogram of the Percent Identity column using the "hist" command. Notice how we specify the correct column- we need to use the $ symbol followed by the correct column header. 
+>hist(blastout$V3)
+
+We can play around with various other plotting parameters to make the plot look nicer. R is really good for this. Here are a few samples:
+>hist(blastout$V3, breaks=50, col="blue")
+>hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits")
+>hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits", xlim=c(0, 100))
  
-And the output should be a single number, which is the average of all of the % identity scores from the blast output. Since each line was a distinct alignment between one query protein and it's best match in the reference dataset, this gives us a nice idea of how similar the proteins are overall. Here I got 49.98, which is quite low for % amino acid identity. So it seems as though the protein sequences of these genomes are quite dissimilar. 
+For closely related genomes many scientists prefer using average nucleic acid identity (ANI) instead, but for distantly-related organisms this metric is less useful. Viruses evolve very quickly, so AAI is more useful here. To get the mean percent identity we can use the "mean" function in R. 
+
+> mean(blastout$V3)
  
-For closely related genomes many scientists prefer using average nucleic acid identity (ANI) instead, but for distantly-related organisms this metric is less useful. Viruses evolve very quickly, so AAI is more useful here. 
+I got 50.6 for this, so pretty low! This implies the two viruses are quite divergent (not particularly closely related). 
  
 Now try doing the reverse and seeing how similar the results are (i.e., using PSSM2 as the query and PSSM3 as the db).
 When you vary the e-value what happens to the one-way AAI? Does this make sense?
