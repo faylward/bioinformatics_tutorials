@@ -133,7 +133,9 @@ We can make a simple histogram of the Percent Identity column using the "hist" c
 
 We can play around with various other plotting parameters to make the plot look nicer. R is really good for this. Here are a few samples:
 >hist(blastout$V3, breaks=50, col="blue")
+
 >hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits")
+
 >hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits", xlim=c(0, 100))
  
 ![Image of Example RStudio Console](https://github.com/faylward/bioinformatics_tutorials/blob/master/4_Homology_searches/image10.png)
