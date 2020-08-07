@@ -1,6 +1,8 @@
 # Bioinformatics tutorials
 <br/>
 
+site URL: https://faylward.github.io/bioinformatics_tutorials/
+
 Currently in development!
 <br/><br/>
 
