@@ -1,9 +1,9 @@
 ## Homology searches ##
 <br>
-When analyzing genomic data we will often find ourselves in a situation where we have a genome/gene/protein of interest and we will want to know what it is similar to. Perhaps you have a specific gene you're interested in, and you want to know what organisms have a similar gene. Or perhaps you have a new genome, and you want to know what closely-related genomes have already been sequenced. A general first step in answering these questions involves doing a simple homology search to compare your sequence of interest to a database of reference sequences. That's what we'll focus on here, with an emphasis on protein-protein comparisons. 
+<p> When analyzing genomic data we will often find ourselves in a situation where we have a genome/gene/protein of interest and we will want to know what it is similar to. Perhaps you have a specific gene you're interested in, and you want to know what organisms have a similar gene. Or perhaps you have a new genome, and you want to know what closely-related genomes have already been sequenced. A general first step in answering these questions involves doing a simple homology search to compare your sequence of interest to a database of reference sequences. That's what we'll focus on here, with an emphasis on protein-protein comparisons. 
 <br>
-Here we will use proteins predicted from the genomes of two Prochlorococcus bacteriophage genomes. We can use the wget command, which is already available as part of the base Ubuntu command line. Wget allows us to download files from a web server directly into the folder we are working in, and we need to know the URL for the file in order to do this. The National Center for Biotechnology Information (NCBI) has many genomes and genome-related datasets that it posts for researchers to use, and I have gone through and found the appropriate URLs to use here. 
-Here are the commands:
+<p> Here we will use proteins predicted from the genomes of two Prochlorococcus bacteriophage genomes. We can use the wget command, which is already available as part of the base Ubuntu command line. Wget allows us to download files from a web server directly into the folder we are working in, and we need to know the URL for the file in order to do this. The National Center for Biotechnology Information (NCBI) has many genomes and genome-related datasets that it posts for researchers to use, and I have gone through and found the appropriate URLs to use here. <br>
+<p> Here are the commands:
  
 <br>
 
