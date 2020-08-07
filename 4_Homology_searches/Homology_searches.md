@@ -4,6 +4,7 @@ When analyzing genomic data we will often find ourselves in a situation where we
 <br>
 Here we will use proteins predicted from the genomes of two Prochlorococcus bacteriophage genomes. We can use the wget command, which is already available as part of the base Ubuntu command line. Wget allows us to download files from a web server directly into the folder we are working in, and we need to know the URL for the file in order to do this. The National Center for Biotechnology Information (NCBI) has many genomes and genome-related datasets that it posts for researchers to use, and I have gone through and found the appropriate URLs to use here. 
 Here are the commands:
+ 
 <br>
 
 >wget -O PSSM2.fna.gz ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/859/585/GCF_000859585.1_ViralProj15135/GCF_000859585.1_ViralProj15135_genomic.fna.gz
