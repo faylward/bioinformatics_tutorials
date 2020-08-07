@@ -106,7 +106,7 @@ Now as an exercise try changing the parameters a bit and see how they change the
  
 Importantly, note that the results may change if we switch the query and the reference files (why would this be?), so we will want to do the reciprocal analysis too. 
 
-### Interpreting the results
+### Plotting the Results in the R console
 
 Above I mentioned two questions we would like to answer:
 1) How many proteins in genome A are present in genome B and vice versa.
@@ -136,13 +136,18 @@ We can play around with various other plotting parameters to make the plot look 
 >hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits")
 >hist(blastout$V3, breaks=50, col="blue", main="PSSM3 vs PSSM2 BLASTP % ID", xlab="% ID", ylab="number of hits", xlim=c(0, 100))
  
+![Image of Example RStudio Console](https://github.com/faylward/bioinformatics_tutorials/blob/master/4_Homology_searches/image10.png)
+ 
 For closely related genomes many scientists prefer using average nucleic acid identity (ANI) instead, but for distantly-related organisms this metric is less useful. Viruses evolve very quickly, so AAI is more useful here. To get the mean percent identity we can use the "mean" function in R. 
+
+### Calculating the Average Amino Acid Identity
 
 > mean(blastout$V3)
  
 I got 50.6 for this, so pretty low! This implies the two viruses are quite divergent (not particularly closely related). 
- 
-Now try doing the reverse and seeing how similar the results are (i.e., using PSSM2 as the query and PSSM3 as the db).
+Note that this is the one-way AAI, since we are only looking at results using one virus as the query and one as the reference. Results will vary slightly if we do the reverse. 
+
+Try doing the reverse and seeing how similar the results are (i.e., using PSSM2 as the query and PSSM3 as the db).
 When you vary the e-value what happens to the one-way AAI? Does this make sense?
 What about query coverage? How does increasing that change the one-way AAI?
 
