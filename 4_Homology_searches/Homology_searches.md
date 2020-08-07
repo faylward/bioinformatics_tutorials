@@ -23,7 +23,7 @@ After this we should have two .faa files. To check this we can simply use the ls
  
 ### Predict proteins
  
-Now that we have our genomes downloaded and unzipped, we need to predict genes and proteins. 
+Now that we have our genomes downloaded and unzipped, we need to predict genes and proteins (similar to what what is described in a [Previous Tutorial](https://github.com/faylward/bioinformatics_tutorials/blob/master/3_Gene_Prediction/Gene_Prediction.md))
 
 > prodigal -i PSSM2.fna -a PSSM2.faa -d PSSM2.genes.fna -f gff -o PSSM2.gff
 
