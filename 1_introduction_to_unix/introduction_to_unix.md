@@ -85,7 +85,7 @@ So if I want to download this file all I need to type is:
 You will note that the file we just downloaded had the strange ending ".gz". That is because this is a compressed gzip file that we will need to uncompress in order to inspect further. 
 Do this this we can use the "gunzip" command:
 
-> gunzip GCF_000009585.1_ASM958v1_genomic.fna
+> gunzip GCF_000009585.1_ASM958v1_genomic.fna.gz
 
 And if you run "ls" now you should see the same file without the .gz ending. 
 The new file has a ".fna" ending, which stands for FASTA Nucleic Acid. This contains the raw genomic information for the Yersinia pestis genome. 
@@ -202,7 +202,7 @@ Or to output only the names:
 
 > sort -k 2,2 -rn protein_length.txt | cut -f 1 | head
 
-Key flags for "cut" are -f, which specifies which columns to output, and -d, which specifies the delimiter (tabs are the default). If we had more columns and we wanted to output more than one, we coud use "-f 1-2" for columns 1 and 2 or "-f 2,3-5" for columns 2, 3, 4, and 5. 
+Key flags for "cut" are -f, which specifies which columns to output, and -d, which specifies the delimiter (i.e., what character separates the entires - tabs are the default). If we had more columns and we wanted to output more than one, we coud use "-f 1-2" for columns 1 and 2 or "-f 2,3-5" for columns 2, 3, 4, and 5. 
 
 ## rm. 
 
