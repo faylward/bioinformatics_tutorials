@@ -1,7 +1,7 @@
 ## Parsing FASTA files ##
 
 Here we will be looking at the genome of Yersinia pestis, which can be found on NCBI at this location
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCA/000/009/065/GCA_000009065.1_ASM906v1
+https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/222/975/GCF_000222975.1_ASM22297v1/
 
 Copy this URL into your browser and take a look at the files. These are publicly-available files that are made available from the National Center for Biotechnology Information (NCBI). 
 
