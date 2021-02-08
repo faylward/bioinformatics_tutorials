@@ -4,12 +4,12 @@
 
 Let's start by downloading a Staphylococcus aureus genome from NCBI:
 
-> wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_genomic.fna.gz
+> wget ftp.ncbi.nlm.nih.gov/genomes/all/GCF/002/000/765/GCF_002000765.1_ASM200076v1/GCF_002000765.1_ASM200076v1_genomic.fna.gz
 
 and let's make sure to unzip it so that we can access the .fna file directly (gunzip command). 
 Make sure to use "head" and "tail" as we did in the W1 tutorial to ensure that the file is in FASTA format.
 
-> gunzip  GCF_000009585.1_ASM958v1_genomic.fna.gz
+> gunzip  GCF_002000765.1_ASM200076v1_genomic.fna.gz
 
 and
 
@@ -17,13 +17,13 @@ and
 
 Now let's get some basic stats using seqkit so we know what we're dealing with:
 
-> seqkit stats GCF_000009585.1_ASM958v1_genomic.fna
+> seqkit stats GCF_002000765.1_ASM200076v1_genomic.fna
 
 and
 
-> seqkit fx2tab -l -n -g GCF_000009585.1_ASM958v1_genomic.fna
+> seqkit fx2tab -l -n -g GCF_002000765.1_ASM200076v1_genomic.fna
 
-Based on these results we can see we're working with a 2.9 Mbp genome that is split into 4 replicons. The chromosome has the majority of the sequence, with 2.87 Mbp. The chromosome has a %GC content of ~33%, slightly higher than that of the plasmids. 
+Based on these results we can see we're working with a 2.9 Mbp genome that is split into 3 replicons. The chromosome has the majority of the sequence, with 2.87 Mbp. The chromosome has a %GC content of ~33%, slightly higher than that of the plasmids. 
 
 ## Predicting Protein-Coding Genes with Prodigal
 
@@ -47,7 +47,7 @@ We can see that this tool is quite a bit simpler than seqkit. For example, there
 
 Let's run prodigal such that we get genes, proteins, and a tabular GFF file. 
 
-> prodigal -i GCF_000009585.1_ASM958v1_genomic.fna -a proteins.faa -d genes.fna -o output_table.gff
+> prodigal -i GCF_002000765.1_ASM200076v1_genomic.fna -a proteins.faa -d genes.fna -o output_table.gff
 
 And make sure to run "ls" afterwards to ensure the right files have been created. 
 
@@ -74,22 +74,22 @@ For the lengths we can do the same with the proteins file, and we should find th
 
 Note that the GC content is still calculated for proteins, even though this statistic is not useful here. 
 
-Since this Staphylococcus aureus genome is divided up among 1 chromosome and 3 plasmids, we may wish to know how many genes were predicted on each plasmid. 
+Since this Staphylococcus aureus genome is divided up among 1 chromosome and 2 plasmids, we may wish to know how many genes were predicted on each plasmid. 
 We know the plasmid names from runnin seqkit fx2tab:
 
-> seqkit fx2tab -l -g -n GCF_000009585.1_ASM958v1_genomic.fna
+> seqkit fx2tab -l -g -n GCF_002000765.1_ASM200076v1_genomic.fna
 
 and we can find all genes on these plasmids with commands like the following:
 
-> seqkit fx2tab -l -g -n  genes.fna | grep "NC_017334.1"
+> seqkit fx2tab -l -g -n  genes.fna | grep "NZ_CP014430.1"
 
 If we don't want to count we can pipe the above command into a "wc" command:
 
-> seqkit fx2tab -l -g -n  genes.fna | grep "NC_017334.1" | wc
+> seqkit fx2tab -l -g -n  genes.fna | grep "NZ_CP014430.1" | wc
 
 And if we want to get very fancy we can use grep to identify all genes EXCEPT those on the main chromosome with the following command:
 
-> seqkit fx2tab -l -g -n  genes.fna | grep -v "NC_017333.1" | wc
+> seqkit fx2tab -l -g -n  genes.fna | grep -v "NC_CP014429.1" | wc
 
 Note the -v flag in grep indicates that all lines that do not match to the given pattern should be returned. 
 With this command we can see that only 14 of 2,691 genes are present on all of the plasmids combined. So the vast majority of genes are present on the chromosome.  
@@ -109,7 +109,7 @@ Barrnap is a relatively simple tool to use. We can see the help menu with
 
 We essentially just need to give it the input FASTA file of the genome, and specify an output file with a ">" symbol. 
 
-> barrnap GCF_000009585.1_ASM958v1_genomic.fna > rRNA.gff
+> barrnap GCF_002000765.1_ASM200076v1_genomic.fna > rRNA.gff
 
 This gives us a GFF file with the coordinates of the predicted RNA genes, but it does not give us the sequences. To retrieve them we need to use a tool called BEDtools, which will cross reference the genome file with the GFF file and give us a FASTA file of all of the rRNA genes. More information on BEDtools can be found here: https://bedtools.readthedocs.io/en/latest/
 
@@ -118,7 +118,8 @@ To install bedtools we can use the same conda command as we have been using:
 > conda install bedtools -c bioconda
 
 Bedtools is quite a versatile program, but here we only need to do something rather simple, so we will only use only one command:
-> bedtools getfasta -fi GCF_000009585.1_ASM958v1_genomic.fna -bed rRNA.gff -fo rRNA.fasta
+
+> bedtools getfasta -fi GCF_002000765.1_ASM200076v1_genomic.fna -bed rRNA.gff -fo rRNA.fasta
 
 The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
 
@@ -128,7 +129,7 @@ The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
 
 and let's say we wanted to get the sequence of the first 16S rRNA gene:
 
-> seqkit fx2tab rRNA.fasta | grep "NC_017333.1:564549-566098"
+> seqkit fx2tab rRNA.fasta | grep "NZ_CP014429.1:512722-514271"
 
 Retrieving the sequence of a 16S rRNA gene can be very helpful if you are unsure of the taxonomy of the genome that you are examining. These genes can be compared to various 16S databases to help identify a microbe. 
 
