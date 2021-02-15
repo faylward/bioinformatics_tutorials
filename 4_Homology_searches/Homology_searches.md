@@ -38,7 +38,9 @@ Now that we have the files downloaded and in the right format, we can get some b
 Let's use "seqkit stats" to get some sequence statistics for the protein files. 
 
 > seqkit stats PSSM2.faa 
+
 or
+
 > seqkit stats PSSM3.faa 
 
 ### Make a reference BLAST database to search against
