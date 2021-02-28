@@ -5,6 +5,8 @@
 In this tutorial we will convert sets of aligned proteins into "Hidden Markov Models" (HMMS) that we can then use as a reference for homology searches. HMM searches are more sensitive than regular BLAST homology searches, and they can be more efficient because we can use only one HMM as the reference instead of many representatives from the same protein family. The tradeoff is that we lose information about which reference protein is most similar to our query- perhaps we want to know not only if our protein of interest is an RNAP subunit, for example, but also what reference protein it is most similar to. So BLAST is still useful, just for answering slightly different questions. 
 <br>
  
+ ### Downlaod the data
+ 
 >git clone https://github.com/faylward/hmm_introduction
 
 and then 
@@ -28,6 +30,7 @@ And now let's get some stats on how many sequences are in this file, and how lon
 
 >seqkit fx2tab -inl nifh.faa
 
+### Create a global alignment of our reference proteins
 
 For starters we are going to create a global alignment of these NifH proteins using Clustal Omega, a popular alignment program. Because it is nice to visualize these things we will go to the main webpage and use the web interface:
 
@@ -59,6 +62,8 @@ Note that all of the sequences are the same length now. This should always be th
 
 Now let's create an HMM from the multi-sequence alignment of NifH proteins. For this we can use the hmmbuild command in HMMER. 
 
+### Create an HMM and use it as a reference
+
 >hmmbuild nifh.hmm nifh.aln
 
 You should see the nifh.hmm file now. Take a look with "more".  
@@ -84,6 +89,8 @@ Or, if we want a tabulated output and introduce an E-value threshold,
 
 We can  browse the results with "more". There are two proteins with very good matches to our HMM.
 
+### Compare the results to what we would have gotten with BLASTp
+
 Now let's compare this annotation to one that we would do with BLASTP. 
 First we need to make a BLASTP database from the nifh.faa file. 
 
@@ -93,4 +100,4 @@ And then we can compare all of the Methanococcus proteins to this BLAST database
 
 >blastp -query methanococcus.faa -db nifh.faa -evalue 1e-5 -outfmt 6 > blastpout.txt
 
-Here the annotations are not as clear as with hmmsearch. Note that some of the hits that we are getting for our query proteins have very low % identity, so it is difficult to assess with BLASTP alone whether or not the proteins belong to the same family. 
+Here the results are still fairly good -we can still tell which query proteins share homology with NifH - but they are not as clear-cut as with hmmsearch. Note that some of the hits that we are getting for our query proteins have very low % identity, so it is difficult to assess with BLASTp alone whether or not the proteins belong to the same family. 
