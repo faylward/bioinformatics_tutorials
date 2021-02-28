@@ -1,6 +1,8 @@
 ## Introduction to HMMs ##
 <br>
 <p> In the previous tutorial we used BLAST to compare two sequences, or two sets of sequences (nucleic acid genes or amino acid proteins). Sometimes it is more appropriate to compare a set of sequences to an alignment of reference sequences, rather than a large set of reference sequences. This is most commonly done when we have a set of protein families (i.e., a set of proteins with a shared evolutionary history), and we want to know which family a given protein belongs to. Maybe we want to know if a protein is an RNA Polymerase subunit- rather than comparing the protein to a large set of RNAP subunits, we can just compare it to one reference alignment. 
+ 
+In this tutorial we will convert sets of aligned proteins into "Hidden Markov Models" (HMMS) that we can then use as a reference for homology searches. HMM searches are more sensitive than regular BLAST homology searches, and they can be more efficient because we can use only one HMM as the reference instead of many representatives from the same protein family. The tradeoff is that we lose information about which reference protein is most similar to our query- perhaps we want to know not only if our protein of interest is an RNAP subunit, for example, but also what reference protein it is most similar to. So BLAST is still useful, just for answering slightly different questions. 
 <br>
  
 >git clone https://github.com/faylward/hmm_introduction
@@ -39,7 +41,7 @@ Click on the "send to mview" button to export the alignment to the MView tool. T
 
 
 Now we want to do something similar in the command line. 
-For alignment we can still use Clustal Omega:
+For alignment we can still use Clustal Omega (if you don't have this installed you can use Miniconda- "conda install clustalo -c bioconda"):
 
 >clustalo -i nifh.faa -o nifh.aln
 
