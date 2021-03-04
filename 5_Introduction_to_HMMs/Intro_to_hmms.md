@@ -64,6 +64,12 @@ Now let's create an HMM from the multi-sequence alignment of NifH proteins. For 
 
 ### Create an HMM and use it as a reference
 
+To install HMMer we can use:
+
+> conda install -c bioconda hmmer
+
+And then:
+
 >hmmbuild nifh.hmm nifh.aln
 
 You should see the nifh.hmm file now. Take a look with "more".  
