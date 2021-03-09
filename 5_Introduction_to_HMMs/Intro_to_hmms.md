@@ -32,7 +32,7 @@ and then check with:
 
 Here we will run a similar command to the one we used in the "orthologous groups" tutorial, only this time we will be including 5 genomes instead of 2 or 3. You can modify the "-cpus" flag depending on how many cores you would like to use. Using 2 cores this should take about 2 minutes to complete. 
 
-proteinortho5 -project=cp_pangenome -cpus=2 -singles fasta/*.faa
+>proteinortho5 -project=cp_pangenome -cpus=2 -singles fasta/*.faa
 
 And of course after this we should use the "ls" command to ensure that the appropriate new files were created:
 
