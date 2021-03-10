@@ -79,12 +79,12 @@ You will need to change this depending on what the PATH to the micorpan-source.R
 
 Now that we are in R and have the micropan code loaded into our session, we will need to load in the results we got from Proteinortho so we can start analyzing them. For this we will create an R DataFrame simply "x" that will contain the data from the "cp_pangenome.proteinortho" file.
 
->x <- read.table("week7/pangenomics_tutorial/cp_pangenome.proteinortho.tsv",  header=T,  sep="\t")
+>x <- read.table("week7/pangenomics_tutorial/cp_pangenome.proteinortho.tsv",  header=F,  sep="\t")
 
 A few notes:
 - Here "<-" is essentially a fancy "=" that is used in R. 
 - "read.table" is the R function for loading data.
-- header=T  
+- header=F  
 - sep="\t" specifies that the file is tab-delimited ("\t" is a general expression for tabs).
 
 Now in addition to loading the data into R we also need to transform it into a "pangenome matrix" object that is more easily used by micropan. You will see things like this a lot in R, since different packages need data to be organized in a certain way. We can do this with the simple command:
