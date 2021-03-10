@@ -36,7 +36,7 @@ And of course after this we should use the "ls" command to ensure that the appro
 
 >ls -la
 
-The main output file we want to work with from Proteinortho is the ".proteinortho" file. Use "head" and "tail" to take a look at this file. The lines are a bit long, here is the general format:
+The main output file we want to work with from Proteinortho is the ".proteinortho.tsv" file. Use "head" and "tail" to take a look at this file. The lines are a bit long, here is the general format:
 
 - Each row (aside from the header) has information for one protein cluster (or protein family- both terms are equivalent here). 
 
@@ -52,7 +52,7 @@ The main output file we want to work with from Proteinortho is the ".proteinorth
 
 If we want to know how many protein clusters were found, we can just use "wc" and subtract one from the line count (since one line is the header). 
 
->wc -l cp_pangenome.proteinortho
+>wc -l cp_pangenome.proteinortho.tsv
 
 I got 1197 total lines, so 1196 total protein clusters. 
 
@@ -60,11 +60,11 @@ Now we can start looking through the .proteinortho file to get some idea of what
 
 Let's say I want to know how many proteins were found in all genomes exactly one time. For this I can search for "5\5" since that should match only to the first two columns. We need to use the "-P" flag here to make sure the whitespace is matched.  
 
->cut -f 1-2 cp_pangenome.proteinortho | grep -P "5\t5" | wc | wc -l
+>cut -f 1-2 cp_pangenome.proteinortho.tsv | grep "5\t5" | wc | wc -l
 
 And if we want to find how many proteins were present only once in one genome, we can use:
 
->cut -f 1-2 cp_pangenome.proteinortho | grep -P "1\t1" | wc | wc -l
+>cut -f 1-2 cp_pangenome.proteinortho.tsv | grep "1\t1" | wc | wc -l
 
 I got 986 protein clusters shared between 5 genomes and only 117 singleton clusters. This is out of 1197 total. So the majority of the proteins encoded in these genomes are shared between all 5 genomes, indicating a rather restricted pan-genome (i.e., not a huge amount of variability). 
 
@@ -79,7 +79,7 @@ You will need to change this depending on what the PATH to the micorpan-source.R
 
 Now that we are in R and have the micropan code loaded into our session, we will need to load in the results we got from Proteinortho so we can start analyzing them. For this we will create an R DataFrame simply "x" that will contain the data from the "cp_pangenome.proteinortho" file.
 
->x <- read.table("week7/pangenomics_tutorial/cp_pangenome.proteinortho",  header=T,  sep="\t")
+>x <- read.table("week7/pangenomics_tutorial/cp_pangenome.proteinortho.tsv",  header=T,  sep="\t")
 
 A few notes:
 - Here "<-" is essentially a fancy "=" that is used in R. 
