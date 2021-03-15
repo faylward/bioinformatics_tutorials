@@ -3,13 +3,13 @@
 
 First we will download some files from GitHub from a repository called "phylogenetics_tutorial":
 
-git clone https://github.com/faylward/phylogenetics_tutorial
+>git clone https://github.com/faylward/phylogenetics_tutorial
 
 and then we will move into the new folder and see what files are present:
 
-cd phylogenetics_tutorial
+>cd phylogenetics_tutorial
 
-ls -lh
+>ls -lh
 
 You should see a file called SSU_seqs.fna. This file contains some Small Subunit (SSU) rRNA genes, also called 16S rRNA genes, that we will use to practice multi-sequence alignment and phylogenetic inference. Every SSU gene here comes from a different microbe, and by examining these genes we can begin to reconstruct the evolutionary relationships between different groups. SSU rRNA genes are often used for this purpose, and in general these genes are considered great "phylogenetic markers" since they are highly conserved and present in all cellular life (they are necessary for functioning of the ribosome). 
 
@@ -17,11 +17,11 @@ Let's take a quick look at the sequences.
 
 Using Unix head:
 
-head SSU_seqs.fna
+>head SSU_seqs.fna
 
 And seqkit:
 
-seqkit fx2tab -l -g -n SSU_seqs.fna
+>seqkit fx2tab -l -g -n SSU_seqs.fna
 
 You should find 8 sequences in FASTA format that vary in length between 1,250-1,530 bp. This is pretty typical for full length SSU rRNA genes. Note that the GC content varies between groups- this is also typical. 
 
@@ -31,43 +31,41 @@ Also, here we also need to align the full length of the sequences. Before we wer
 
 For this we will use a tool called Clustal Omega. Let's take a quick look at the help menu:
 
-clustalo --help
+>clustalo --help
 
 There are lots of different options that you can play around with, so take a look at them. 
 
-
-
 Here we will use a simple clustalo command using mainly default parameters:
 
-clustalo -i SSU_seqs.fna -o SSU.aln
+>clustalo -i SSU_seqs.fna -o SSU.aln
 
 The -i flag specifies the input, and the -o flag specifies the output. The default output format is "FASTA". Let's take a look at what that looks like:
 
-head SSU.aln
+>head SSU.aln
 
 You will notice that the output file looks fairly similar to the input file, but that the sequences have some gaps that are denoted with "-" symbols. These gaps are needed since some sequences may have insertions or deletions ("indels") that make it impossible to align some regions of one sequence to another. 
 
 Let's take another look using seqkit:
 
-seqkit fx2tab -l -n -g  SSU.aln
+>seqkit fx2tab -l -n -g  SSU.aln
 
 You will notice here that all of the sequences are the same length now. This should always be the case for aligned sequences, since gaps will be introduced to ensure that every position in one aligned sequence can be related to the same position in another. 
 
 The default FASTA alignment we got from clustalo is just one of many alignment formats that we can get. Just to look at another, let's try Phylip format. This format used to be quite commonly used, and many programs still use it. 
 
-clustalo -i SSU_seqs.fna -o SSU.phy.aln --outfmt=phy
+>clustalo -i SSU_seqs.fna -o SSU.phy.aln --outfmt=phy
 
 Let's take a look using Unix head:
 
-head SSU.phy.aln
+>head SSU.phy.aln
 
 Whereas the FASTA formatted alignment displayed every sequence in full sequentially, here all aligned regions are displayed together. This is called "Phylip interleaved" format, since the aligned sequences are interleaved. Note that names are also truncated to only 10 characters.  
 
 Try Clustal format too and see what that looks like:
 
-clustalo -i SSU_seqs.fna -o SSU.clu.aln --outfmt=clu
+>clustalo -i SSU_seqs.fna -o SSU.clu.aln --outfmt=clu
 
-head SSU.clu.aln
+>head SSU.clu.aln
 
 
 Now that we have our multi-sequence alignment file we can create a phylogeny using a program called FastTree. 
@@ -75,21 +73,21 @@ As the name suggests, this program is quite fast. Early phylogenic estimation pr
 
 First let's take a look at the options:
 
-fasttree
+>fasttree
 
 
 
 To run the program on our alignment we can type:
 
-fasttree -nt SSU.aln > SSU.nwk
+>fasttree -nt SSU.aln > SSU.nwk
 
 The output in this case is a Newick file, with .nwk extension. This is the most commonly used file format to store phylogenetic trees. The format is quite compact and you will see the file is quite small. Let's take a look:
 
-ls -la
+>ls -la
 
 and 
 
-head SSU.nwk
+>head SSU.nwk
 
 
 Newick format is a bit hard to read just by looking at it, especially for trees with many species. The general principal is that parentheses are placed to denote evolutionary relationships. So something like  A(B,C) would mean that A and B are more closely related than either is to A. Branch lengths and support values are also in there, so it can get a bit dense.
