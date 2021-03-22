@@ -65,16 +65,16 @@ The other interesting file that spades created is the assembly_graph.fastg file.
 
 To visualize this we will use a tool called Bandage. This tool is a bit different than the ones we have usually been using since it will not run in the command line. Instead we will download it via the command line, unzip the file, navigate to the file in the File Explorer, and then double-click on the Bandage file to start it. A GUI (Graphical User Interface) will pop up and we will work there. 
 
-The code for downloading and unzipping the tool is:
+The website where you can find the appropriate version of Bandage to run on your computer is:
 
-> wget https://github.com/rrwick/Bandage/releases/download/v0.8.1/Bandage_Ubuntu_dynamic_v0_8_1.zip
+https://rrwick.github.io/Bandage/
 
-and
 
-> unzip Bandage_Ubuntu_dynamic_v0_8_1.zip
+After you download you should see a file called Bandage if you navigate to one of the subfolders in zipped archive you download. Double click on it. 
+A program should pop up with a menu on the top band. 
 
-You should see a file called Bandage if you navigate to your current folder in the File Explorer. Double click on it. 
-A program should pop up with a menu on the top band. Click on File->Load graph and navigate to the FASTG file that SPAdes created. Then click on Draw Graph in the middle of the menu on the left. 
+Click on File->Load graph and navigate to the FASTG file that SPAdes created. You will need to download the file onto your computer to do this. 
+Then click on Draw Graph in the middle of the menu on the left. 
 You should see something like this:
 
 ![alt text](https://github.com/faylward/bioinformatics_tutorials/blob/master/8_Short_Read_Assembly/assembly.png)
