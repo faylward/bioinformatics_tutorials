@@ -93,6 +93,10 @@ A k-mer size of of 17 is quite short, so we can run SPAdes again with a longer k
 
 Now go back to Bandage and load up the FASTG file from this latest assembly. Look better? I got something like this:
 
+
+![alt text](https://github.com/faylward/bioinformatics_tutorials/blob/master/8_Short_Read_Assembly/assembly2.png)
+
+
 So it seems the longer k-mer length really helped resolve those knots and bubbles. This is becuase longer k-mers are less likely to be repeated in different regions of the genome, since they are higher complexity regions. It's unlikely that a 117-bp sequence will be present in different regions, but it's much easier for a 17-bp sequence to be present in multiple locations. 
 
 If you look at the scaffolds.fasta file for the new assembly you should also see almost all of the sequence is in one large scaffold. So we have our complete genome!
