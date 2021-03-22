@@ -77,7 +77,7 @@ You should see a file called Bandage if you navigate to your current folder in t
 A program should pop up with a menu on the top band. Click on File->Load graph and navigate to the FASTG file that SPAdes created. Then click on Draw Graph in the middle of the menu on the left. 
 You should see something like this:
 
-logo: assembly.png
+![alt text](https://github.com/faylward/bioinformatics_tutorials/blob/master/8_Short_Read_Assembly/assembly.png)
 
 
 
