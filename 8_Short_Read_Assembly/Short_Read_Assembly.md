@@ -1,4 +1,4 @@
-###### Short Read Assembly #####
+### Short Read Assembly #####
 
 First we need to download the raw read data, which will be in FASTQ format. This is how the data looks when it comes right off of a sequencer.
 
