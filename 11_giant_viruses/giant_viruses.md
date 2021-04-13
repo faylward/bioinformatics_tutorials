@@ -53,6 +53,7 @@ This will run for a while, because the HMM databases are large and the hmmsearch
 
 Additionally, for each viral region viralrecall will print out .faa and .fna files for the proteins and nucleotide sequences for the regions found. Please be sure to use only .fna files as input.
 
+Because we used the -f flag, there should also be a .pdf file there that provides the rolling average VR score across the input file contig(s). 
 
 
 
