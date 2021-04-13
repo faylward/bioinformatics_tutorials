@@ -22,16 +22,16 @@ For the help menu we can type:
 python viralrecall.py -h
 
 
-let's download the genome for Acanthamoeba polyphaga Mimivirus, the canonical "giant virus":
-> wget -O mimi.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/888/735/GCF_000888735.1_ViralProj60053/GCF_000888735.1_ViralProj60053_genomic.fna.gz
+let's download the genome for Pithovirus sibericum, the largest virus discovered in terms of physical dimensions (1.5 um):
+> wget -O pitho.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/916/835/GCF_000916835.1_ViralProj237323/GCF_000916835.1_ViralProj237323_genomic.fna.gz
 
 and unzip it
 
-> gunzip mimi.fna.gz
+> gunzip pitho.fna.gz
 
 and then run VR on it:
 
-> python viralrecall.py -i mimi.fna -p mimi_out -f
+> python viralrecall.py -i pitho.fna -p pitho_out -f
 
 This will run for a while, because the HMM databases are large and the hmmsearch takes a while. Once it finishes the output files will be in the mimi_out folder. The files are:
 
