@@ -21,3 +21,14 @@ For the help menu we can type:
 
 python viralrecall.py -h
 
+let's download the genome for Acanthamoeba polyphaga Mimivirus, the canonical "giant virus":
+> wget -O mimi.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/888/735/GCF_000888735.1_ViralProj60053/GCF_000888735.1_ViralProj60053_genomic.fna.gz
+
+and unzip it
+
+> gunzip mimi.fna.gz
+
+and then run VR on it:
+
+python viralrecall.py -i mimi.fna -p mimi_out -f
+
