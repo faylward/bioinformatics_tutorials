@@ -31,10 +31,9 @@ and unzip it
 
 and then run VR on it:
 
-> python viralrecall.py -i pitho.fna -p pitho_out -f
+> python viralrecall.py -i pitho.fna -p pitho_out -f -c -t 4
 
 This will run for a while, because the HMM databases are large and the hmmsearch takes a while. Once it finishes the output files will be in the mimi_out folder. The files are:
-
 
 
 *.faa: The proteins predicted from the input file using Prodigal
@@ -53,7 +52,23 @@ This will run for a while, because the HMM databases are large and the hmmsearch
 
 Additionally, for each viral region viralrecall will print out .faa and .fna files for the proteins and nucleotide sequences for the regions found. Please be sure to use only .fna files as input.
 
-Because we used the -f flag, there should also be a .pdf file there that provides the rolling average VR score across the input file contig(s). 
+Because we used the -f flag, there should also be a .pdf file there that provides the rolling average VR score across the input file contig(s). The more giant virus signatures we find, the higher the score should be overall (more blue). So this genome should look pretty good. 
+
+
+
+Now let's download the genome of phage lambda, which is definitely not a giant virus:
+
+>wget -O lambda.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/840/245/GCF_000840245.1_ViralProj14204/GCF_000840245.1_ViralProj14204_genomic.fna.gz
+
+and unzip it:
+
+> gunzip lambda.fna.gz 
+
+and run VR:
+
+>python viralrecall.py -i lambda.fna -p lambda_out -t 4 -c -f
+
+We can look at the same genome plot here, and the values we get should be quite a bit lower than those for Pithovirus (more red). And when we look in the .full_annot.tsv file we should see quite a few GVOG hits overall, since those are more typically found in giant viruses. 
 
 
 
