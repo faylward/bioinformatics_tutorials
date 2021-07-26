@@ -35,13 +35,13 @@ strategies out there because it would lead to a very long digression. The main p
 tetranucleotide frequencies) can be used to bin giant virus genomes just like they can be used to make bacterial/archaeal MAGs. Just make sure the 
 approach you use does not use marker genes, because giant viruses will not have the same marker genes we would expect to find in bacteria/archaea. 
 
-# download contigs
-# download raw reads
-# map reads to get coverage information
-# use MetaBat2 to get bins
-# run ViralRecall to identify NCLDV bins
-# Place NCLDV bins into the reference GVDB phylogeny
-# Analyze annotation results from ViralRecall
+download contigs
+download raw reads
+map reads to get coverage information
+use MetaBat2 to get bins
+run ViralRecall to identify NCLDV bins
+Place NCLDV bins into the reference GVDB phylogeny
+Analyze annotation results from ViralRecall
 
 
 
