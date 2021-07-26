@@ -1,4 +1,4 @@
-## Aylward Lab SOP for analyzing giant virus MAGs!
+## Example workflow for binning and analyzing giant virus MAGs!
 
 
 first we
