@@ -5,8 +5,11 @@ What follows here is a fairly bare-bones workflow, and bells-and-whistles can be
 The steps below outline methods we use in the lab for:
 
 -Producing giant virus MAGs
+
 -Quality-checking MAGs
+
 -Performing functional annotations on proteins encoded in the MAGs
+
 -Placing the MAGs into a reference phylogeny for classification. 
 
 This is based on a workflow we developed in the lab for a previous study (Moniruzzaman et al., Nature Communications, 2020). 
