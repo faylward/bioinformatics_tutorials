@@ -1,5 +1,50 @@
 ## Example workflow for binning and analyzing giant virus MAGs!
 
+Several people have asked me to write up a short workflow on how we produce giant virus MAGs in our lab. 
+What follows here is a fairly bare-bones workflow, and bells-and-whistles can be added to suite the particular needs of different datasets. 
+The steps below outline methods we use in the lab for:
+
+-Producing giant virus MAGs
+-Quality-checking MAGs
+-Performing functional annotations on proteins encoded in the MAGs
+-Placing the MAGs into a reference phylogeny for classification. 
+
+This is based on a workflow we developed in the lab for a previous study (Moniruzzaman et al., Nature Communications, 2020). 
+
+Here I am using the term "giant virus" to refer to all dsDNA viruses in the Nucleocytoviricota - a viral phylum that includes well-studied viruses such as 
+poxoviruses and African swine fever virus as well as many more-recently discovered lineages such as Pandoraviruses and Mimiviruses (among many others). 
+The nomenclature is really confusing and many quasi-contradictory taxonomic names have been proposed over the years - for more details on how we are trying to 
+standardize things please see our preprint on giant virus taxonomy: 
+
+It turns out giant viruses are quite ubiquitous in the biosphere, and they turn up in a wide variety of metagenomes. So I anticipate that
+workflows similar to this one could be applied on a wide variety of datasets, provided that assembly quality was high enough. As a good rule-of-thumb, 
+if a metagenome is high enough quality to recover bacterial or archaeal MAGs it should be good enough to do the same for giant viruses. 
+
+But first of all, why would we bother generating viral bins in the first place? Most metagenome-based viral diversity studies don't do this - 
+instead they rely on direct analysis of viral contigs that have been retrieved from an assembled metagenome. This contig-centric approach might work alright
+for smaller viral genomes (i.e., some bacteriophage), but giant viruses have large and complex genomes - typically 200-1,200 kbp - and they will usually not
+assemble down into nice individual contigs. So by using a contig-centric approach we would be missing lots of valuable information since multiple contigs
+belong to the same virus. So in my opinion it is best to analyze giant viruses in a similar manner to how we routinely analyze bacteria and archaea - by 
+generating MAGs using binning-based approaches and subsequent QC. 
+
+For binning purposes I am just going to use MetaBat2 here. I like MetaBat2 because it is scalable and fairly easy to use, but please be advised that 
+there are many different approaches for contig binning out there, and there may be a better approach for your data. 
+You may wish to use multiple binning approaches and see which one works best. For example if you had multiple metagenomes from 
+similar environments you may wish to incorporate contig co-abundance information into your analysis. I'm not going to go into all the different binning
+strategies out there because it would lead to a very long digression. The main principle to keep in mind is that coverage and nucleotide composition (i.e., 
+tetranucleotide frequencies) can be used to bin giant virus genomes just like they can be used to make bacterial/archaeal MAGs. Just make sure the 
+approach you use does not use marker genes, because giant viruses will not have the same marker genes we would expect to find in bacteria/archaea. 
+
+# download contigs
+# download raw reads
+# map reads to get coverage information
+# use MetaBat2 to get bins
+# run ViralRecall to identify NCLDV bins
+# Place NCLDV bins into the reference GVDB phylogeny
+# Analyze annotation results from ViralRecall
+
+
+
 
 first we
 
