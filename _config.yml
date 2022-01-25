@@ -1,5 +1,5 @@
-#theme: jekyll-theme-cayman
-remote_theme: andreondra/jekyll-theme-simplex
+theme: jekyll-theme-minima
+#remote_theme: andreondra/jekyll-theme-simplex
 title: [bioinformatica miscellanea]
 description: [Short bioinformatics tutorials for the microbially-inclined]
 logo: aylward_logo.png
