@@ -1,4 +1,4 @@
-theme: jekyll-theme-minima
+theme: minima
 #remote_theme: andreondra/jekyll-theme-simplex
 title: [bioinformatica miscellanea]
 description: [Short bioinformatics tutorials for the microbially-inclined]
