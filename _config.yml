@@ -1,4 +1,5 @@
-theme: jekyll-theme-cayman
+#theme: jekyll-theme-cayman
+remote_theme: amitmerchant1990/reverie
 title: [bioinformatica miscellanea]
 description: [Short bioinformatics tutorials for the microbially-inclined]
 logo: aylward_logo.png
