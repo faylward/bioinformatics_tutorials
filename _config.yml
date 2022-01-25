@@ -1,5 +1,5 @@
 #theme: jekyll-theme-cayman
-remote_theme: mmistakes/minimal-mistakes
+remote_theme: daviddarnes/alembic
 title: [bioinformatica miscellanea]
 description: [Short bioinformatics tutorials for the microbially-inclined]
 logo: aylward_logo.png
