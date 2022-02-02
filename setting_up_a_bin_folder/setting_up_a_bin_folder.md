@@ -31,13 +31,17 @@ And then we can check to make sure it is there.
 
 Now we should be able to run seqkit in the command line as long as we are in the bin folder. But if we configure a the .bashrc file in our home directory, we will be able to run binaries in our bin folder from any directory. 
 The .bashrc file in your home directory contains code that is run every time the command line is initiated.  
+In your .bashrc file you want to include a line that exports the PATH of your bin folder to the command line. The syntax for this is:
 
+> export PATH=$PATH:<absolute path to bin folder>
 
+For me this looks like: 
+  
+> export PATH=$PATH:/home/faylward/bin
 
-and
-
->cd transcriptomics_tutorial
->
-and then
-
->ls
+After you run this you will need to save changes to your .bashrc file and restart your command line. You can do this either by starting a new session or running the command:
+  
+  > source .bashrc
+  
+  
+  Now you should be able to run seqkit from the command line from any location! And if you need to install a new binary you can put it in your bin folder and it should work without any additional changes. 
