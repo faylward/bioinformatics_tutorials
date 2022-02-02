@@ -33,7 +33,7 @@ Now we should be able to run seqkit in the command line as long as we are in the
 The .bashrc file in your home directory contains code that is run every time the command line is initiated.  
 In your .bashrc file you want to include a line that exports the PATH of your bin folder to the command line. The syntax for this is:
 
-> export PATH=$PATH:<absolute path to bin folder>
+> export PATH=$PATH: absolute path to your bin folder
 
 For me this looks like: 
   
