@@ -119,9 +119,9 @@ To install bedtools we can use the same conda command as we have been using:
 
 Bedtools is quite a versatile program, but here we only need to do something rather simple, so we will only use only one command:
 
-> bedtools getfasta -fi GCF_002000765.1_ASM200076v1_genomic.fna -bed rRNA.gff -fo rRNA.fasta
+> bedtools getfasta -s -fi GCF_002000765.1_ASM200076v1_genomic.fna -bed rRNA.gff -fo rRNA.fasta
 
-The rRNA.fasta file should have our rRNA genes. Let's see how many we found:
+The rRNA.fasta file should have our rRNA genes. We need to supply the input sequence (-fi), the output file name (-fo), and the gff (-bed). The -s flag makes sure we retrieve sequences on the appropriate strand. Let's see how many we found:
 
 > seqkit stats rRNA.fasta
 
