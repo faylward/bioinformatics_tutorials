@@ -1,4 +1,4 @@
-## Introduction to Pan-Genomics ##
+## Introduction to HMMs ##
 <br>
 
 
