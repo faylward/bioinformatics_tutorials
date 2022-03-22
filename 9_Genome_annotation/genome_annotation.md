@@ -18,7 +18,7 @@ In the new file you should see a gzipped file that contains proteins from a myst
 
 For this analysis we want to annotate all of the proteins in this genome using a suite of HMMs. We will use the TIGRfam database today. I have uploaded this database onto a Virginia Tech library link, so we can download it with the followingn command. 
 
->wget -O tigrfams.tar.gz https://data.lib.vt.edu/downloads/pc289j19b
+>wget https://figshare.com/ndownloader/files/34457867?private_link=c0a5586a9b4b7351703a
 
 This should download a .tar.gz file, which is essentially a gzipped folder, also called a "tarball". This is a bit different then just a gzipped file, and we need a special command to unzip it. 
 
