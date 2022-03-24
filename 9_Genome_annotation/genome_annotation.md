@@ -18,19 +18,18 @@ In the new file you should see a gzipped file that contains proteins from a myst
 
 For this analysis we want to annotate all of the proteins in this genome using a suite of HMMs. We will use the TIGRfam database today. I have uploaded this database onto a Virginia Tech library link, so we can download it with the followingn command. 
 
->wget https://figshare.com/ndownloader/files/34457867?private_link=c0a5586a9b4b7351703a
+>wget -O tigrfams.hmm.gz https://figshare.com/ndownloader/files/34457867?private_link=c0a5586a9b4b7351703a
 
-This should download a .tar.gz file, which is essentially a gzipped folder, also called a "tarball". This is a bit different then just a gzipped file, and we need a special command to unzip it. 
+This should download a .gz file, which is a gzipped HMM file. To unzip:
 
->tar xvfz tigrfams.tar.gz
+>gunzip tigrfams.hmm.gz
 
-If you look inside of the tigrfams file you should see two files- one HMM file and one .txt file.
 The HMM file contains thousands of HMMs all merged together. This is the full TIGRfam database. Note that the file is quite large. 
-The .txt file contains descriptions of each HMM. When we want to annotate a protein we don't just want to know that the best hit was TIGR20034. We also want to know what the function of TIGR20034 is. That's what this file is for.  
+The .txt file that is already in this folder contains descriptions of each HMM. When we want to annotate a protein we don't just want to know that the best hit was TIGR20034. We also want to know what the function of TIGR20034 is. That's what this file is for.  
 
 To run the initial HMM annotation we can use the hmmsearch command in HMMER3:
  
->hmmsearch --tblout mystery_genome.hmmout --cut_tc tigrfams/all_tigrfam.hmm mystery_genome_proteins.faa > full_hmmout.txt
+>hmmsearch --tblout mystery_genome.hmmout --cut_tc tigrfams.hmm mystery_genome_proteins.faa > full_hmmout.txt
  
 Note that in the command above we are using the --cut_tc option, which specifies that we want to use pre-specified bit score cutoffs to classify these proteins. All hits that have bit scores below the specifications for each HMM will be disregarded, regardless of their e-value. 
 
@@ -38,7 +37,7 @@ After we run the hmmsearch we can parse the results with a Python script that I 
 This script goes through the tabular hmmsearch output and finds only the best hits for each protein. It also removes the weird space-delimited format that HMMER3 insists on using and converts it into a nice tab-delimited format. 
 We can run it with:
  
->python parse_hmmout.py tigrfams/profile_annotations.tigr.txt mystery_genome.hmmout > mystery_genome.parsed.hmmout.txt
+>python parse_hmmout.py profile_annotations.tigr.txt mystery_genome.hmmout > mystery_genome.parsed.hmmout.txt
  
 Note that we need to specify the profile annotations file, since we want the final annotation file to contain the TIGRfam descriptions. 
 
