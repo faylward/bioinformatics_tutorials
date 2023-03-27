@@ -7,9 +7,11 @@ We will be using a tool called "orthofinder" for this tutorial. This tools requi
 >conda create -n SYSB3036 python=3.6
 <br>
 Follow the prompts to install, and then activate with:
+<br>
 >conda activate SYSB3036
 <br>
 And then install with:
+<br>
 >conda install orthofinder -c bioconda
 <br>
 Now we need to get some data to start with. I have already prepared some starting files and put them on a GitHub repository, so we can download it using the following command:
