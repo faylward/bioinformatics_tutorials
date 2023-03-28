@@ -81,7 +81,7 @@ You will need to change this depending on what the PATH to the micorpan-source.R
 
 Now that we are in R and have the micropan code loaded into our session, we will need to load in the results we got from Orthofinder so we can start analyzing them. The big matrix of genes that orthofinder produces does not include the singleton genes (i.e., those found in only one genome), so I wrote a small python script to make a file that we can use. 
 
->python make_full_pangenome_filelpy fasta/Orthofinder/Results_Mar27th/Orthogroups pangenome_file.txt
+>python make_full_pangenome_file.py fasta/Orthofinder/Results_Mar27th/Orthogroups pangenome_file.txt
 
 Note that the PATH here will depend on when you ran the command, because Orthofinder creates a new folder every time it is run. Once you run this command you should have a file called "pangenome_file.txt" that can be loaded into R. 
 
