@@ -36,7 +36,7 @@ and then:
 
 The "micropan-source.R" file contains source code written in the R language that we will use later in the tutorial. No need to do anything with it just yet.  
 
-The four .faa.gz files correspond to the proteins encoded in 4 Chlamydia pneumoniae genomes that I downloaded from NCBI RefSeq. I chose these genomes since Chlamydia pneumonieae genomes are relatively small (~1 Mbp) and encoded only ~1,000 genomes, so calculating orthologous groups between 4 genomes should not take too long. Calculating orthologous groups gets quickly becomes computationally intensive as we add more genomes, so using smaller genomes should save us a bit of time. Also, Chlamydia pneumoniae is a fascinating pathogen that causes lung infections, and so it's an interesting bug to study here (for more information see the CDC page: https://www.cdc.gov/pneumonia/atypical/cpneumoniae/index.html)
+The four .faa.gz files correspond to the proteins encoded in 4 Chlamydia pneumoniae genomes that I downloaded from NCBI RefSeq. I chose these genomes since Chlamydia pneumonieae genomes are relatively small (~1 Mbp) and encoded only ~1,000 genomes, so calculating orthologous groups between 5 genomes should not take too long. Calculating orthologous groups gets quickly becomes computationally intensive as we add more genomes, so using smaller genomes should save us a bit of time. Also, Chlamydia pneumoniae is a fascinating pathogen that causes lung infections, and so it's an interesting bug to study here (for more information see the CDC page: https://www.cdc.gov/pneumonia/atypical/cpneumoniae/index.html)
 
 First we need to unzip the .faa files in the fasta/ folder so we can begin to analyze the protein files. 
 If you are in the folder pangenomics_tutorial you can run the command:
@@ -47,45 +47,28 @@ and then check with:
 
 >ls -la fasta
 
-Here we will run a similar command to the one we used in the "orthologous groups" tutorial, only this time we will be including 5 genomes instead of 2 or 3. You can modify the "-cpus" flag depending on how many cores you would like to use. Using 2 cores this should take about 2 minutes to complete. 
+Then we can run a basic orthofinder command:
 
->proteinortho -project=cp_pangenome -cpus=2 -singles fasta/*.faa
+>orthofinder -S blast -og -f fasta/
 
 And of course after this we should use the "ls" command to ensure that the appropriate new files were created:
 
 >ls -la
 
-The main output file we want to work with from Proteinortho is the ".proteinortho.tsv" file. Use "head" and "tail" to take a look at this file. The lines are a bit long, here is the general format:
+The main output file we want to work with from orthofinder is the "Orthogroups.GeneCount.tsv" file, which is unfortunately a bit nested inside of different folders that this tool creates (full path is "pangenomics_tutorial/fasta/OrthoFinder/Results_Mar27/Orthogroups/Orthogroups.GeneCount.tsv"). Use "head" and "tail" to take a look at this file. The lines are a bit long, here is the general format:
 
 - Each row (aside from the header) has information for one protein cluster (or protein family- both terms are equivalent here). 
 
 - Each line is tab-delimited, and the first three columns have information about that particular cluster. 
 
-- The first column provides the # of species in which a cluster is present. Here a 5 would mean the protein cluster is found in every genome. 
-
-- The second column provides the number of proteins that are present. This can be different than the first column since one genome can have multiple members of a given protein cluster. 
-
-- The third column has the Algebraic connectedness. We won't worry about this here, but this gives some information about how the proteins are distributed in the different genomes. 
-
-- After that, the number of columns depends on the number of genomes that we analyzed. Since we have 5 genomes there will be 5 more columns (for a total of 8). Each of these next columns just has the names of the proteins that belong to a cluster, or a * if no proteins for that cluster were found. 
+- After that, the number of columns depends on the number of genomes that we analyzed. Since we have 5 genomes there will be 5 more columns (for a total of 8). 
 
 If we want to know how many protein clusters were found, we can just use "wc" and subtract one from the line count (since one line is the header). 
 
->wc -l cp_pangenome.proteinortho.tsv
+>wc -l fasta/OrthoFinder/Results_Mar27/Orthogroups/Orthogroups.GeneCount.tsv
 
-I got 1197 total lines, so 1196 total protein clusters. 
+Now we can start looking through the Orthogroups.GeneCount.tsv file to get some idea of what the pan-genome looks like. This will tell us how many proteins are shared between different genomes, and how many unique proteins each genome has. 
 
-Now we can start looking through the .proteinortho file to get some idea of what the pan-genome looks like. This will tell us how many proteins are shared between different genomes, and how many unique proteins each genome has. 
-
-Let's say I want to know how many proteins were found in all genomes exactly one time. For this I can search for "5\5" since that should match only to the first two columns. We need to use the "-P" flag here to make sure the whitespace is matched.  
-
->cut -f 1-2 cp_pangenome.proteinortho.tsv | grep "5\t5" | wc | wc -l
-
-And if we want to find how many proteins were present only once in one genome, we can use:
-
->cut -f 1-2 cp_pangenome.proteinortho.tsv | grep "1\t1" | wc | wc -l
-
-I got 986 protein clusters shared between 5 genomes and only 117 singleton clusters. This is out of 1197 total. So the majority of the proteins encoded in these genomes are shared between all 5 genomes, indicating a rather restricted pan-genome (i.e., not a huge amount of variability). 
 
 For the next few steps we will be operating in the R programming language. To do this we can start R and then continue working in the command line, only this time we will need to use R command rather than Unix commands. 
 
