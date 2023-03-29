@@ -87,7 +87,7 @@ Note that the PATH here will depend on when you ran the command, because Orthofi
 
 For this we will create an R DataFrame simply "x" that will contain the data from the "pangenome_file.txt" file.
 
->x <- read.table(file="pangenomics_tutorial/fasta/OrthoFinder/Results_Mar27/Orthogroups/Orthogroups.GeneCount.tsv", header=T, row.names=1, sep="\t")
+>x <- read.table(file="pangenomics_tutorial/pangenome_file.txt", header=T, row.names=1, sep="\t")
 
 A few notes:
 - Here "<-" is essentially a fancy "=" that is used in R. 
