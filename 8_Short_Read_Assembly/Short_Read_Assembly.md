@@ -2,13 +2,21 @@
 
 First we need to download the raw read data, which will be in FASTQ format. This is how the data looks when it comes right off of a sequencer.
 
-Raw sequencing read data is quite large and can be unwieldy, so that's why we need the sra-toolkit to download it. This tool is designed to interface with the NCBI Sequence Read Archive to get the data. To install sra-tookit we can use conda:
+Raw sequencing read data is quite large and can be unwieldy, so that's why we need the sra-toolkit to download it. This tool is designed to interface with the NCBI Sequence Read Archive to get the data. To install sra-tookit we can download from the source:
 
->conda install sra-tools -c bioconda
+>wget https://ftp-trace.ncbi.nlm.nih.gov/sra/sdk/3.0.2/sratoolkit.3.0.2-centos_linux64.tar.gz
+
+And then unpack:
+
+> tar xvfz sratoolkit.3.0.2-centos_linux64.tar.gz
+
+The fastq-dump command should work now as long as you give it the full path to the binary:
+
+>sratoolkit.3.0.2-centos_linux64/bin/fastq-dump
 
 Then we can use the fastq-dump sub-command in the sra-toolkit to download raw fastq data: 
 
->fastq-dump -X 10000 --split-3 SRR6764339
+>sratoolkit.3.0.2-centos_linux64/bin/fastq-dump -X 10000 --split-3 SRR6764339
 
 A few things about this command:
 - The purpose of this command is to download FASTQ files of raw sequencing reads that belong to a specific genome project, and in this case SRR6764339 corresponds to the Staphylococcus phage we want to analyze. FASTQ files are similar to FASTA files, but in addition to sequence information they also contain quality score information. This is because the sequencer is not always 100% confident in the bases that it calls, and we want to be able to discern between low-quality and high-quality sequence for our downstream analysis. 
