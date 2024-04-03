@@ -67,7 +67,17 @@ If we want to know how many protein clusters were found, we can just use "wc" an
 
 >wc -l fasta/OrthoFinder/Results_Mar27/Orthogroups/Orthogroups.GeneCount.tsv
 
-Now we can start looking through the Orthogroups.GeneCount.tsv file to get some idea of what the pan-genome looks like. This will tell us how many proteins are shared between different genomes, and how many unique proteins each genome has. 
+Now we can start looking through the Orthogroups.GeneCount.tsv file to get some idea of what the pan-genome looks like. This will tell us how many proteins are shared between different genomes, and how many unique proteins each genome has. We can inspect this file manually, and also plot a heatmap by loading it into R. 
+
+>y <- as.matrix(read.table(file="pangenomics_tutorial/fasta/OrthoFinder/Results_Apr03/Orthogroups/Orthogroups.GeneCount.tsv", header=T, row.names=1, sep="\t"))
+
+Now we have disignated "y" as a data.frame. The last column includes the total number of genes within an orthogroup, which we want to exclude when plotting a heatmap. So we can subset with:
+
+> w <- y[1:10,1:5]
+
+And then plot the heatmap with:
+
+>heatmap(w)
 
 The big matrix of genes that orthofinder produces does not include the singleton genes (i.e., those found in only one genome), so I wrote a small python script to make a file that we can use. 
 
