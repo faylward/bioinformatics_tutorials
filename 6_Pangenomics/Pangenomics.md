@@ -169,3 +169,31 @@ A value of alpha > 1 is used to describe "closed" pan-genomes, or those in which
 
 I generally use a large value for the number of permuatations to use for estimating this paramter (~1000). I've noticed the values can be quite variable if a smaller number of permutations is used. 
 Here I got a value of ~0.75. So the Chlamydia genomes still technically have "open" pangenomes, even though their core genome is much larger than their variable genome. 
+
+### Creating an UpSet plot
+One last visualizaiton we can create is an upset plot, which is like a Venn diagram, but more suitable when comparing more than 4-5 different sets (in this case genomes). 
+
+For this we need to install the UpSetR package:
+
+> install.packages("UpSetR")
+
+and then load it:
+
+> library(UpSetR)
+
+Then we load in the orthogroup occurrence matrix:
+
+> x <- read.table(file="Orthogroups.GeneCount.tsv", header=T, row.names=1)
+
+For an UpSet plot, we only need a binary occurrence matrix, so we can remove the inforamtion that tells us how many times an orthogroup occurs in a genome:
+
+> x[x>1] <- 1
+
+And we can remove the last column, that has the Total orthogroup tally (which we don't need)
+
+> y <- x[,1:length(x)-1]
+
+Finally, we can make the upset plot
+
+> upset(y, nsets = length(y), order.by="freq")
+
