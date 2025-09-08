@@ -190,6 +190,11 @@ Here "-k 2,2" tells sort that we only want to sort by the second column. "-n" is
 
 Note that you may get "broken pipe" errors here, but we can usually ignore them if you are only interested in the first few lines. 
 
+You can also practice the sort command with a Gene Feature Format file on NCBI:
+
+> wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/222/975/GCF_000222975.1_ASM22297v1/GCF_000222975.1_ASM22297v1_genomic.gff.gz
+
+Don't forget to gunzip!
 
 ## cut
 
