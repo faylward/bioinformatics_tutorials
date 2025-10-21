@@ -1,22 +1,10 @@
 ## Pan-Genomics ##
 
 <br>
-We will be using a tool called "orthofinder" for this tutorial. This tools required Python 3.6 or greater, so we need to install a new Python environment with conda before proceeding. 
+We will be using a tool called "orthofinder" for this tutorial. This tool may require a newer version of Python than the 3.9 that we used before. Try installing in your base mamba first (i.e., don't activate any environment first)
 <br>
 
->conda create -n SYSB3036 python=3.6
-<br>
-
-Follow the prompts to install, and then activate with:
-<br>
-
->conda activate SYSB3036
-<br>
-
-And then install with:
-<br>
-
->conda install orthofinder -c bioconda
+>mamba install orthofinder -c bioconda
 <br>
 
 Now we need to get some data to start with. I have already prepared some starting files and put them on a GitHub repository, so we can download it using the following command:
@@ -196,4 +184,5 @@ And we can remove the last column, that has the Total orthogroup tally (which we
 Finally, we can make the upset plot
 
 > upset(y, nsets = length(y), order.by="freq")
+
 
