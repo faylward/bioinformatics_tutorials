@@ -232,6 +232,9 @@ Download the installer into your home folder. Go to https://github.com/conda-for
 Type ls and locate the Miniconda file you just downloaded. It should end with “.sh”
 
 > ls
+
+Or, do only view files that end with ".sh"
+
 > ls *.sh
 
 Now run the script with the "bash" command and follow the instructions when prompted
@@ -251,5 +254,5 @@ After this is done, open a new terminal and type “mamba” to see if the help 
 
 Now, when you start a session, you can activate this environment by running:
 
->mamba activate SYSB3035
+>mamba activate py39
 >
