@@ -73,11 +73,11 @@ One command that is very useful is the "wget" command. This is a standard Unix c
 
 This is useful if you want to download genome files from a public server such as the National Center for Biotechnology Information (NCBI). On NCBI the URL for the genome of the bacterium Staphylococcus aureus is: 
 
-ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_genomic.fna.gz 
+ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.fna.gz
 
 So if I want to download this file all I need to type is:
 
-> wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_genomic.fna.gz
+> wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_genomic.fna.gz
 
 
 ## gunzip
@@ -136,7 +136,7 @@ For example, let's combine two commands we already have experience with. Let's s
 
 This output is simple enough now, but you can imagine if you had thousands of header lines in a file you would not want to count them by hand. Let's try downloading all of the proteins from the Staphylococcus aureus genome and counting them, using pipes and some commands from above:
 
-> wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/009/585/GCF_000009585.1_ASM958v1/GCF_000009585.1_ASM958v1_protein.faa.gz
+> wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/013/425/GCF_000013425.1_ASM1342v1/GCF_000013425.1_ASM1342v1_protein.faa.gz
 
 > gunzip GCF_000009585.1_ASM958v1_protein.faa.gz
 
