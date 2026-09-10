@@ -17,7 +17,13 @@ Here we will be most interested in the gene and chromosome files.
 
 ### Download some data 
 
-To get started let's download the genes, in FASTA format, for Yersinia Pestis CO92
+To get started let's download the genome and genes files, in FASTA format, for Yersinia Pestis CO92
+
+First the genome:
+
+> wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/222/975/GCF_000222975.1_ASM22297v1/GCF_000222975.1_ASM22297v1_genomic.fna.gz
+
+And for the genes:
 
 > wget https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/222/975/GCF_000222975.1_ASM22297v1/GCF_000222975.1_ASM22297v1_cds_from_genomic.fna.gz
 
