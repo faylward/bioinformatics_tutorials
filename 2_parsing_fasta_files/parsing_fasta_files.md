@@ -1,6 +1,8 @@
 ## Parsing FASTA files ##
 
-Here we will be looking at the genome of Yersinia pestis, which can be found on NCBI at this location
+Let's start by downloading a few genomes of different organisms and looking at the files. 
+ 
+For most of this tutorial we will be looking at  the genome of Yersinia pestis, which can be found on NCBI at this location
 https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/222/975/GCF_000222975.1_ASM22297v1/
 
 Copy this URL into your browser and take a look at the files. These are publicly-available files that are made available from the National Center for Biotechnology Information (NCBI). 
@@ -14,6 +16,19 @@ Here we will be most interested in the gene and chromosome files.
 
 <br/>
 <br/>
+
+We can download some other genomes for comparison. The genome of a wine grape with:
+
+> wget -O vvinifera.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/030/704/535/GCF_030704535.1_ASM3070453v1/GCF_030704535.1_ASM3070453v1_genomic.fna.gz
+
+Notice that I used the -O flag with a filename afterwards. This way I can choose the name of the file instead of relying on the default NCBI names, which are very long and hard to read. 
+
+Let's also download the human genome for comparison:
+
+> wget hsapien.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/al
+l/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.fna.gz
+
+We can look at these general stats of these genomes in a minute.
 
 ### Download some data 
 
