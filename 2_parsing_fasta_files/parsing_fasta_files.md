@@ -25,7 +25,7 @@ Notice that I used the -O flag with a filename afterwards. This way I can choose
 
 Let's also download the human genome for comparison:
 
-> wget hsapien.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/al
+> wget -O hsapien.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/al
 l/GCF/009/914/755/GCF_009914755.1_T2T-CHM13v2.0/GCF_009914755.1_T2T-CHM13v2.0_genomic.fna.gz
 
 We can look at these general stats of these genomes in a minute.
