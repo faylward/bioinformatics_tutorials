@@ -16,6 +16,9 @@ And
 
 wget -O shigella.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/925/GCF_000006925.2_ASM692v2/GCF_000006925.2_ASM692v2_genomic.fna.gz
 
+And 
+wget -O salmonella.fna.gz https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/006/945/GCF_000006945.2_ASM694v2/GCF_000006945.2_ASM694v2_genomic.fna.gz
+
 And now we can run fastANI:
 
 > fastANI -q k12.fna.gz -r shigella.fna.gz -o ani_out.txt
