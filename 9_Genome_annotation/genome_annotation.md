@@ -41,8 +41,14 @@ We can run it with:
  
 Note that we need to specify the profile annotations file, since we want the final annotation file to contain the TIGRfam descriptions. 
 
-Another way to annotate genomes, and get some visualizations of pathway-level annotations, is to use the Kyoto Encyclopedia of Genes and Genomes (KEGG). They host an annotation server here:
+Another way to annotate genomes, and get some visualizations of pathway-level annotations, is to use the Kyoto Encyclopedia of Genes and Genomes (KEGG) or the eggNOG mapper tool. The KEGG server is here:
 
 https://www.genome.jp/kaas-bin/kaas_main
 
 Upload the protein file, add in your email, and make sure to use the "For Prokaryotes" option at the bottom of the page so that the correct reference database is used.  A link will be mailed to you, and you need to click the "submit" option in that email for the annotation to begin. After that you will need to wait ~10-45 minutes for the annotation to finish, and the link will be mailed to you again. 
+
+And the eggNOG mapper server is here:
+
+https://eggnog-mapper.cgmlab.org/submit/
+
+You will once again need to upload your proteins to the server and submit. 
